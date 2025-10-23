@@ -1,5 +1,5 @@
 <?php
-include '../config/config.php';
+include '../config/loader.php';
 $request = explode('/', $_SERVER['REQUEST_URI']);
 
 $entity = $request[1] ?? null;

@@ -16,7 +16,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: nein
       MYSQL_DATABASE: pokedex
-      MYSQL_USER: phpstorm
+      MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: 123456
     ports:
       - "3306:3306"

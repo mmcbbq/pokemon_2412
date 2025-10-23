@@ -1,7 +1,7 @@
 <?php
 
-$con = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PW);
-
+//$con = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PW);
+$con = dbcon();
 $sql = "SELECT * FROM pokemon";
 
 $stmt = $con->prepare($sql);
@@ -25,7 +25,7 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $name = $item['name'];
         $id = $item['id'];
-        $path = DOMAIN_NAME;
+        $path = $_ENV['DOMAIN_NAME'];
         echo "<a href='$path/pokemon/show/$id'>";
         echo "<div>$name</div>";
         echo "</a>";
