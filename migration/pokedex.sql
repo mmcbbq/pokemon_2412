@@ -9,9 +9,9 @@ CREATE TABLE pokemon(
     caught bool,
     type varchar(255)
 );
-
-INSERT INTO pokemon (name, caught, type) VALUES
-                                             ('a',0,'water'),
-                                             ('b',0,'fire'),
-                                             ('c',0,'wind');
+#
+# INSERT INTO pokemon (name, caught, type) VALUES
+#                                              ('a',0,'water'),
+#                                              ('b',0,'fire'),
+#                                              ('c',0,'wind');
 
