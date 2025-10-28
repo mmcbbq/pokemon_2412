@@ -6,6 +6,16 @@ function dbcon(string $host = null, string $dbname = null, string $dbuser = null
     $dbname = $dbname ?? $_ENV['DB_NAME'];
     $dbuser = $dbuser ?? $_ENV['DB_USER'];
     $dbpass = $dbpass ?? $_ENV['DB_PW'];
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpass);
-    return $conn;
+    $con = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpass);
+    return $con;
+}
+
+
+function create(array $data):false|string
+{
+    $con = dbcon();
+    $sql = 'INSERT INTO pokemon (name, caught, type) VALUES (:name, :caught, :type)';
+    $stm = $con->prepare($sql);
+    $stm->execute($data);
+    return $con->lastInsertId();
 }
