@@ -1,5 +1,7 @@
 <?php
 include '../config/loader.php';
+
+
 $request = explode('/', $_SERVER['REQUEST_URI']);
 
 $entity = $request[1] ?? null;
@@ -40,12 +42,8 @@ if ($entity === 'api') {
             $conn = dbcon();
             $sql = "INSERT INTO pokemon (name, caught, type) VALUES (:name, :caught, :type)";
             $stmt = $conn->prepare($sql);
-//            var_dump($_POST);
             $stmt->execute($_POST);
             http_response_code(201);
-//            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-//            header('Content-Type: application/json');
-//            echo json_encode(['data'=>$result]);
             break;
         case "PUT":
             $data = file_get_contents('php://input');
@@ -53,7 +51,6 @@ if ($entity === 'api') {
             $conn = dbcon();
             $sql = "UPDATE pokemon set name= :name, caught = :caught, type= :type where id=:id";
             $stmt = $conn->prepare($sql);
-//            var_dump($_POST);
             $stmt->execute($data);
             http_response_code(201);
             break;
@@ -68,11 +65,7 @@ if ($entity === 'api') {
             break;
 
     }
-
-
 } else {
-
-
     switch ($method) {
         case '':
             echo 'Welcome';

@@ -6,7 +6,6 @@ $sql = "SELECT * FROM pokemon where id = :id";
 $stmt = $con->prepare($sql);
 $stmt->execute(['id'=>$id]);
 $data = $stmt->fetch(PDO::FETCH_ASSOC);
-
 ?>
 
 
