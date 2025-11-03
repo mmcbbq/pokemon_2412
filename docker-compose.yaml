@@ -12,12 +12,12 @@ services:
 
   mariadb:
     image: mariadb:latest
-    container_name: mariadb
+    container_name: ${DB_HOST}
     environment:
-      MYSQL_ROOT_PASSWORD: nein
-      MYSQL_DATABASE: pokedex
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PW}
+      MYSQL_DATABASE: ${DB_Name}
       MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: 123456
+      MYSQL_PASSWORD: ${DB_USER_PW}
     ports:
       - "3306:3306"
     restart: always
